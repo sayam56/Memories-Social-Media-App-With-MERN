@@ -1,4 +1,4 @@
-import PostMessage from "../model/postsMessage"
+import PostMessage from "../model/postsMessage.js"
 
 export const getPosts = (req, res) => {
      res.send('this works?')
