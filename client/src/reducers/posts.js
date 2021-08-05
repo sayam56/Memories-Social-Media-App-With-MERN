@@ -6,7 +6,7 @@ const reducers = (posts = [], action) => {
           
           };
      case 'FETCH-ALL':
-          return {...posts};
+          return action.payload;
 
 
 
