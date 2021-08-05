@@ -13,9 +13,10 @@ const Forms = () => {
      });
      const classes = useStyles();
      const handleSubmit = () => {}
+     const clear = () => {}
      return (
           <Paper className={classes.paper}>
-               <form autoComplete='off' noValidate className={classes.form} onSubmit={handleSubmit}>
+               <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
                     <Typography variant='h6'>
                          Creating A Moment
                     </Typography>
@@ -27,9 +28,11 @@ const Forms = () => {
                          <FileBase
                          type="file"
                          multiple={false}
-                         onDone={({base64}) => {}}
+                         onDone={({base64}) => setPostData({ ...postData, selectedFile: base64})}
                          />
                     </div>
+                    <Button className={classes.buttonSubmit} variant='contained' color='primary' size='large' type='submit' fullWidth> Submit </Button>
+                    <Button  variant='contained' color='secondary' size='large' onClick={clear} fullWidth> Clear </Button>
                </form>
           </Paper>
      );
