@@ -1,12 +1,9 @@
 const reducers = (posts = [], action) => {
      switch (action.type) {
      case 'CREATE':
-          return {
-          ...posts,
-          
-          };
+          return [...posts, action.payload];
      case 'FETCH-ALL':
-          return {...posts};
+          return action.payload;
 
 
 
