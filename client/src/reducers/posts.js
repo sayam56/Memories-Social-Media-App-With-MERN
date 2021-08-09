@@ -13,3 +13,5 @@ const reducers = (posts = [], action) => {
 }
 
 export default reducers;
+
+/* update moments app */
