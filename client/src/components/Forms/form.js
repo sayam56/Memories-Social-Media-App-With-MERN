@@ -3,10 +3,12 @@ import useStyles from './styles';
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import FileBase from 'react-file-base64';
 import { useDispatch } from "react-redux";
-import { createPosts } from "../../actions/posts";
+import { createPosts, updatePost } from "../../actions/posts";
+
+// get the current ID of the post we are on
 
 
-const Forms = () => {
+const Forms = ({ currentID, setCurrentID }) => {
      const [postData, setPostData] = useState({
           creator: '',
           title: '',
@@ -20,7 +22,12 @@ const Forms = () => {
      const handleSubmit = (e) => {
           e.preventDefault();
 
-          dispatch(createPosts(postData)); 
+          if(currentID){
+               dispatch(updatePost(currentID, postData)); 
+          }else{
+               dispatch(createPosts(postData)); 
+          }
+          
      }
 
      const clear = () => {}

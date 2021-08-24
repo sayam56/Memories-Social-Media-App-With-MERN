@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, AppBar, Grow, Grid, Typography } from '@material-ui/core';
 import { useDispatch } from "react-redux";
 
@@ -9,6 +9,7 @@ import Forms from "./components/Forms/form";
 import useStyles from './styles';
 
 function App() {
+  const [currentID, setCurrentID] = useState(null);
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -26,10 +27,10 @@ function App() {
         <Container>
           <Grid container justify='space-between' alignItems='stretch' spacing={3}>
             <Grid item xs={12} sm={7}>
-              <Posts/>
+              <Posts setCurrentID={setCurrentID} />
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Forms/>
+              <Forms currentID={currentID} setCurrentID={setCurrentID} />
             </Grid>
           </Grid>
         </Container>
